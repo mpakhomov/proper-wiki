@@ -12,7 +12,8 @@ import play.api.mvc._
  */
 @Singleton
 class HomeController @Inject() (val messagesApi: MessagesApi,
-                                implicit val configuration: Configuration)
+                                implicit val configuration: Configuration,
+                                implicit val webJarAssets: WebJarAssets)
   extends Controller with I18nSupport {
 
   /**

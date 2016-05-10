@@ -1,6 +1,6 @@
 @import play.api.Configuration
 
-@()(content: Html)(implicit messages: Messages, config: Configuration, flash: Flash)
+@()(content: Html)(implicit messages: Messages, config: Configuration, flash: Flash, webJarAssets: WebJarAssets)
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,13 +10,13 @@
 
         <title>ProperWiki</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("img/favicon.png")">
-         <!-- Bootstrap -->
-        <link rel="stylesheet" href="@routes.Assets.versioned("css/bootstrap.min.css")" >
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="@routes.WebJarAssets.at(webJarAssets.locate("css/bootstrap.min.css"))" >
         <!-- <link href="css/bootstrap-cerulean.min.css" rel="stylesheet"> -->
 
         <!-- Font Awesome CDN-->
         @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">*@
-        <link rel="stylesheet" href="@routes.Assets.versioned("css/font-awesome.min.css")" >
+        <link rel="stylesheet" href="@routes.WebJarAssets.at(webJarAssets.locate("css/font-awesome.min.css"))" >
 
         <link rel="stylesheet" href="@routes.Assets.versioned("css/main.css")" >
 
@@ -40,22 +40,22 @@
                 <div class="collapse navbar-collapse" id="menu">
 
                     <ul class="nav navbar-nav">
-                        <li><a href="#" class="btn"><i class="fa fa-list"></i><span class="hidden-sm"> Index</span></a></li>
-                        <li><a href="#" class="btn"><i class="fa fa-plus"></i><span class="hidden-sm"> New</span></a></li>
-                        <li><a href="#" class="btn"><i class="fa fa-pencil"></i><span class="hidden-sm"> Edit</span></a></li>
-                        <li><a href="#" class="btn"><i class="fa fa-clock-o"></i><span class="hidden-sm"> History</span></a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-list"></i><span class="hidden-sm"> @Messages("menu.index")</span></a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-plus"></i><span class="hidden-sm"> @Messages("menu.new")</span></a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-pencil"></i><span class="hidden-sm"> @Messages("menu.edit")</span></a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-clock-o"></i><span class="hidden-sm"> @Messages("menu.history")</span></a></li>
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <form class="navbar-form" role="search" action="#">
                                 <div class="form-group">
-                                    <input name="search" type="text" class="form-control" placeholder="Search">
+                                    <input name="search" type="text" class="form-control" placeholder="@Messages("menu.search.placeholder")">
                                 </div>
                             </form>
                         </li>
-                        <li><a href="#" class="btn"><i class="fa fa-user"></i> &nbsp;Login</a></li>
-                        <li><a href="#" class="btn"><i class="fa fa-users"></i> &nbsp;Register</a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-user"></i> &nbsp;@Messages("menu.login")</a></li>
+                        <li><a href="#" class="btn"><i class="fa fa-users"></i> &nbsp;@Messages("menu.register")</a></li>
                     </ul>
 
 
@@ -74,15 +74,15 @@
 
         <footer>
             <div class="container">
-                <p>Last edited by <strong>mpakhomov</strong>, 2015-10-23 23:28:07</p>
-                <button type="button" class="btn btn-danger">Delete this page</button>
+                <p>@Messages("main.last_edited_by") <strong>mpakhomov</strong>, 2015-10-23 23:28:07</p>
+                <button type="button" class="btn btn-danger">@Messages("main.btn.delete_this_page")</button>
             </div> <!--  class="container" -->
         </footer>
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
         <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
-        <script src="@routes.Assets.versioned("js/jquery-2.2.3.min.js")" ></script>
-        <script src="@routes.Assets.versioned("js/bootstrap.min.js")" ></script>
+        <script src="@routes.WebJarAssets.at(webJarAssets.locate("jquery.min.js"))" ></script>
+        <script src="@routes.WebJarAssets.at(webJarAssets.locate("bootstrap.min.js"))"></script>
     </body>
 </html>

@@ -1,0 +1,10 @@
+menu.index = Index
+menu.new = New
+menu.edit = Edit
+menu.history = History
+menu.search.placeholder = Search
+menu.login = Login
+menu.register = Register
+
+main.btn.delete_this_page = Delete this page
+main.last_edited_by = Last edited by
